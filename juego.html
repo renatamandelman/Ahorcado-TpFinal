@@ -10,27 +10,39 @@
 
 </head>
 <body class="justify-content-center" >
- 
+ <main>
+<section>
 <div class="inicio">
     <h2>Elija el nivel que quiere jugar</h2>
     <div class="btn-group" role="group" aria-label="Basic mixed styles example" >
         <button style="background-color: #FF879E;" type="button" class="btn btn-lg">Bajo</button>
         <button style="background-color: #B1E8E7" type="button" class="btn btn-lg">Medio</button>
         <button style="background-color: #DDFF90" type="button" class="btn btn-lg">Alto</button>
-      </div>
+       
+    </div>
 </div>
+
+</section>
+<section>
 <div class="palabra">
 
 </div>
-<div class="nivel">
+</section>
+<section class="nivel">
+<div class="scoreImagen" >
+  
     <img src="./assets/img/ahorcado 2.png">
+    <h3>Score: <span id="score">0</span>pts</h3>
+    </div>
     <form>
             <label for="inputLetra" class="visually-hidden">Ingrese una letra</label>
             <input type="char" class="form-control" id="inputLetra" placeholder="Ingrese una letra" value="">
             <button style="background-color: #ADCFE8;" type="button" class="btn  ">Enviar</button>
     </form>
 
-</div>
+</section>
+</main>
+
     
 </body>
 </html>
