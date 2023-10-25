@@ -1,0 +1,35 @@
+.inicio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 1em;
+}
+.inicio img{
+    width: 50%;
+    margin-bottom: 1em;
+}
+.inicio button{
+    margin-bottom: 1em;
+}
+a{
+    color:white;
+    text-decoration: none;
+}
+
+.nivel img{
+    width:50%;
+    justify-content: left;
+}
+.nivel input{
+    width: 30%;
+    margin-right:1em;
+}
+.nivel form{
+    display: flex;
+    align-items: row;
+    justify-content: center;
+   
+}
+
