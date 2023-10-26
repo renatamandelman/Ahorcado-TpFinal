@@ -20,15 +20,17 @@ body{
 }
 .scoreImagen{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    text-align:center;
 }
+
 a{
     color:white;
     text-decoration: none;
 }
 
 .nivel img{
-    width:50%;
+    width:20%;
    
 }
 .nivel input{
