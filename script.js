@@ -40,54 +40,55 @@ var palabras = [
   ],
 ];
 var letrasUsadas = [];
-
 var random;
 var numero;
 var longitud;
-var cant = "";
+var palabraOculta = [];
 var input;
 var score = 0;
+var contadorErrores = 0;
 
 document.getElementById("bajo").onclick = function () {
   getRandom(0);
-
-  //console.log(longitud);
-  //console.log(palabras[0][random]);
-};
+  mostrarRayas();
+}
 
 document.getElementById("medio").onclick = function () {
   getRandom(1);
-};
+  mostrarRayas();
+}
 
 document.getElementById("alto").onclick = function () {
   getRandom(2);
-};
+  mostrarRayas();
+
+}
+
+function mostrarRayas(){
+  document.getElementById("rayita").innerHTML = palabraOculta.join(" ");
+  
+}
 
 function getRandom(nivel) {
   random = Math.floor(Math.random() * palabras[nivel].length);
-  longitud = palabras[0][random].length;
-
-  for (var i = 0; i < longitud; i++) {
-    cant += " _ ";
-  }
-  document.getElementById("rayita").innerHTML = cant;
-
+  longitud = palabras[nivel][random].length;
+  palabraOculta = Array(longitud).fill("_");
+ 
   return random;
 }
 
 function verLetras(nivel) {
-  input = document.getElementById("inputLetra").value;
-  if (
-    palabras[nivel][random].indexOf(input) !== -1 &&
-    letrasUsadas.indexOf(input) === -1
-  ) {
+  letra = document.getElementById("inputLetra").value;
+
+  
+  if (palabras[nivel][random].indexOf(letra) !== -1 &&
+    letrasUsadas.indexOf(letra) === -1) {
     //existe la letra en la palabra pero no fue usada
-    letrasUsadas.push(input);
+    
+    letrasUsadas.push(letra);
     score += 2;
-  } else if (
-    palabras[nivel][random].indexOf(input) !== -1 &&
-    letrasUsadas.indexOf(input) != -1
-  ) {
+  } else if (palabras[nivel][random].indexOf(letra) !== -1 &&
+  letrasUsadas.indexOf(letra) != -1) {
     //existe la letra en la palabra pero fue usada
 
     alert("Esta letra ya fue ingresada, ingrese otra");
@@ -100,5 +101,7 @@ function verLetras(nivel) {
     }
   }
 
-  input.value = "";
+  letra.value = "";
 }
+
+arrPalabra = Array(longitud).fill("");
