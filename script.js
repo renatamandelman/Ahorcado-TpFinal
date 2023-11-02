@@ -39,6 +39,7 @@ var palabras = [
     "independencia",
   ],
 ];
+
 var letrasUsadas = [];
 var random;
 var numero;
@@ -47,61 +48,98 @@ var palabraOculta = [];
 var input;
 var score = 0;
 var contadorErrores = 0;
+var palabraElegida;
+var arrayPalabra = [];
+var contadorError = 0;
 
 document.getElementById("bajo").onclick = function () {
   getRandom(0);
   mostrarRayas();
-}
+  verLetra(0);
+};
 
 document.getElementById("medio").onclick = function () {
   getRandom(1);
   mostrarRayas();
-}
+  verLetra(1);
+};
 
 document.getElementById("alto").onclick = function () {
   getRandom(2);
   mostrarRayas();
+  verLetra(2);
+};
 
-}
-
-function mostrarRayas(){
+function mostrarRayas() {
   document.getElementById("rayita").innerHTML = palabraOculta.join(" ");
-  
 }
 
 function getRandom(nivel) {
   random = Math.floor(Math.random() * palabras[nivel].length);
   longitud = palabras[nivel][random].length;
   palabraOculta = Array(longitud).fill("_");
- 
+  letrasUsadas = [];
+
+  console.log(letrasUsadas);
   return random;
 }
 
-function verLetras(nivel) {
-  letra = document.getElementById("inputLetra").value;
+function verLetra(nivel) {
+  document.getElementById("enviar").onclick = function () {
+    letra = document.getElementById("inputLetra").value;
+    document.getElementById("inputLetra").value = "";
+    palabraElegida = palabras[nivel][random];
+    arrayPalabra = palabraElegida.split("");
+    console.log(arrayPalabra);
 
-  
-  if (palabras[nivel][random].indexOf(letra) !== -1 &&
-    letrasUsadas.indexOf(letra) === -1) {
-    //existe la letra en la palabra pero no fue usada
-    
-    letrasUsadas.push(letra);
-    score += 2;
-  } else if (palabras[nivel][random].indexOf(letra) !== -1 &&
-  letrasUsadas.indexOf(letra) != -1) {
-    //existe la letra en la palabra pero fue usada
+    if (arrayPalabra.indexOf(letra) !== -1) {
+      //existe la letra
+      if (letrasUsadas.indexOf(letra) === -1) {
+        //la letra no fue usada
+        letrasUsadas.push(letra);
+        score += 2;
+        document.getElementById("score").innerHTML = score;
+        for (var i = 0; i < arrayPalabra.length; i++) {
+          if (letra == arrayPalabra[i]) {
+            palabraOculta[i] = letra;
+            console.log(palabraOculta);
+          }
+        }
+        document.getElementById("rayita").innerHTML = palabraOculta.join(" ");
+      } else {
+        //la letra fue usada
+        alert("Ya pusiste esa letra, ingresa otra");
+      }
+    } else {
+      //no existe la letra
+      contadorError += 1;
+      console.log(contadorError);
+      //imprime muñequito
+      if (contadorError == 6) {
+        alert("Perdiste");
+        setTimeout(function () {
+          window.location.reload();
+        }, 500);
+        //muere muñeco
+        //aparecer calavera
+      }
+    }
+    if (palabraOculta.indexOf("_") === -1) {
+      score += 20;
+      document.getElementById("score").innerHTML = score;
 
-    alert("Esta letra ya fue ingresada, ingrese otra");
-  } else {
-    //no existe la letra en la palabra
-  }
+      setTimeout(function () {
+        alert("Completaste la palabra!!, elegí otro nivel para seguir jugando");
+      }, 500);
 
-  for (var i = 0; i < palabras[nivel][random].length; i++) {
-    if (indexOf(  ) !== -1) {
+    }
+    if (score >= 100 && palabraOculta.indexOf("_") === -1) {
+
+      setTimeout(function () {
+        alert("GANASTEEEEEEEEEEEEEEEEE");
+        window.location.reload();
+      }, 500);
+
     }
   }
-
-  letra.value = "";
 }
-
-arrPalabra = Array(longitud).fill("");
