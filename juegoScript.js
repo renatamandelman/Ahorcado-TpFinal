@@ -52,23 +52,25 @@ var palabraElegida;
 var arrayPalabra = [];
 var contadorError = 0;
 
-document.getElementById("bajo").onclick = function () {
+
+
+document.getElementById("bajo").onclick = function() {
   getRandom(0);
   mostrarRayas();
   verLetra(0);
-};
+}
 
 document.getElementById("medio").onclick = function () {
   getRandom(1);
   mostrarRayas();
   verLetra(1);
-};
+}
 
 document.getElementById("alto").onclick = function () {
   getRandom(2);
   mostrarRayas();
   verLetra(2);
-};
+}
 
 function mostrarRayas() {
   document.getElementById("rayita").innerHTML = palabraOculta.join(" ");
@@ -114,6 +116,7 @@ function verLetra(nivel) {
       contadorError += 1;
       imagen();
       console.log(contadorError);
+      document.getElementById("intentos").innerHTML = contadorError;
       //imprime muñequito
       if (contadorError == 6) {
         alert("Perdiste");

@@ -10,7 +10,10 @@ html{
     justify-content: center;
 }
 
-
+/* .modal{
+    opacity:100;
+    display: none;
+} */
 body{
     min-width: 100%;
     margin-left:1em;
