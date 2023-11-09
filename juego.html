@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css"  href="styles.css">    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Ahorcado</title>
-    <link rel="shortcut icon" href="./assets/img/WhatsApp Image 2023-10-25 at 18.29.07 (1).jpeg"> 
+    <link rel="shortcut icon" href="./assets/img/WhatsApp Image 2023-10-25 at 18.29.07 (1).jpeg">
 
 </head>
-<body class=" body justify-content-center" >
- <main>
-<section>
-<div class="inicio">
-    <h2>Elija el nivel que quiere jugar</h2>
-    <div class="btn-group" role="group" aria-label="Basic mixed styles example" >
-        <button id="bajo" style="background-color: #FF879E;" type="button" class="btn btn-lg">Bajo</button>
-        <button id="medio" style="background-color: #B1E8E7" type="button" class="btn btn-lg">Medio</button>
-        <button id="alto"style="background-color: #DDFF90" type="button" class="btn btn-lg">Alto</button>
-       
-    </div>
-</div>
 
-</section>
-<section>
-<div class="palabra">
-   
-</div>
-</section>
-<section class="nivel">
-<div class="scoreImagen" >
-  
-    <img src="./assets/img/ahorcado 2.png">
-    <h2   id="rayita"></h2>
-    <h3>Score: <span id="score">0</span>pts</h3>
-    
-    </div>
-    <form>
-            <label for="inputLetra" class="visually-hidden">Ingrese una letra</label>
-            <input type="text" class="form-control" id="inputLetra" placeholder="Ingrese una letra" value="">
-            <button style="background-color: #ADCFE8;" type="button" class="btn" id="enviar">Enviar</button>
-    </form>
+<body class=" body justify-content-center">
+    <main>
+        <section>
+            <div class="inicio">
+                <h1>Elija el nivel que quiere jugar</h1>
+                <div class="btn-group" role="group" aria-label="Basic">
+                    <button id="bajo" style="background-color: #36BFB1;" type="button" class="btn btn-lg">Bajo</button>
+                    <button id="medio" style="background-color: #038C73" type="button" class="btn btn-lg">Medio</button>
+                    <button id="alto" style="background-color: #02735E" type="button" class="btn btn-lg">Alto</button>
 
-</section>
-</main>
- 
-<script src="./script.js"></script>
-    
+                </div>
+            </div>
+
+        </section>
+        <section>
+            <div class="palabra">
+
+            </div>
+        </section>
+        <section class="nivel">
+            <div class="scoreImagen">
+
+                <img id="imagenAhorcado" src="./assets/img/Ahorcados/ahorcado_0.svg">
+                <h2 id="rayita"></h2>
+
+                <div class="score-box">
+                    <div>
+                        <h3> <strong>Score: </strong><span id="score">0</span>pts</h3>
+                        <h3><strong>Intentos: </strong><span id="score">0</span>pts</h3>
+                    </div>
+                </div>
+
+            </div>
+            <form>
+                <label for="inputLetra" class="visually-hidden">Ingrese una letra</label>
+                <input type="text" class="form-control" id="inputLetra" placeholder="Ingrese una letra" value="">
+                <button type="button" class="btn" id="enviar">Enviar</button>
+            </form>
+
+        </section>
+    </main>
+
+    <script src="./script.js"></script>
+
 </body>
+
 </html>

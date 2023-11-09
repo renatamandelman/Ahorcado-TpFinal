@@ -91,7 +91,6 @@ function verLetra(nivel) {
     palabraElegida = palabras[nivel][random];
     arrayPalabra = palabraElegida.split("");
     console.log(arrayPalabra);
-
     if (arrayPalabra.indexOf(letra) !== -1) {
       //existe la letra
       if (letrasUsadas.indexOf(letra) === -1) {
@@ -113,6 +112,7 @@ function verLetra(nivel) {
     } else {
       //no existe la letra
       contadorError += 1;
+      imagen();
       console.log(contadorError);
       //imprime muñequito
       if (contadorError == 6) {
@@ -127,7 +127,6 @@ function verLetra(nivel) {
     if (palabraOculta.indexOf("_") === -1) {
       score += 20;
       document.getElementById("score").innerHTML = score;
-
       setTimeout(function () {
         alert("Completaste la palabra!!, elegí otro nivel para seguir jugando");
       }, 500);
@@ -141,5 +140,34 @@ function verLetra(nivel) {
       }, 500);
 
     }
+  }
+}
+
+function imagen() {
+  imagenAhorcado = document.getElementById("imagenAhorcado");
+  switch (contadorError) {
+    case 0:
+      imagenAhorcado.src = "./assets/img/Ahorcados/ahorcado_0.svg";
+      break;
+    case 1:
+      imagenAhorcado.src = "./assets/img/Ahorcados/ahorcado_1.svg";
+      break;
+    case 2:
+      imagenAhorcado.src = "./assets/img/Ahorcados/ahorcado_2.svg";
+      break;
+    case 3:
+      imagenAhorcado.src = "./assets/img/Ahorcados/ahorcado_3.svg";
+      break;
+    case 4:
+      imagenAhorcado.src = "./assets/img/Ahorcados/ahorcado_4.svg";
+      break;
+    case 5:
+      imagenAhorcado.src = "./assets/img/Ahorcados/ahorcado_5.svg";
+      break;
+    case 6:
+      imagenAhorcado.src = "./assets/img/Ahorcados/ahorcado_6.svg";
+      break;
+
+
   }
 }

@@ -1,6 +1,20 @@
+*{
+    font-family: Poppins, sans-serif;
+}
+
+
+html{
+    display: flex;
+    min-height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+
 body{
-    margin-left:2em;
-    margin-right:2em;
+    min-width: 100%;
+    margin-left:1em;
+    margin-right:1em;
 
 }
 .inicio{
@@ -10,6 +24,8 @@ body{
     text-align: center;
     flex-direction: column;
     margin-top: 1em;
+
+
 }
 .inicio img{
     width: 50%;
@@ -17,6 +33,8 @@ body{
 }
 .inicio button{
     margin-bottom: 1em;
+    border-radius: 300px;
+    box-shadow: 0px 5px 10px 0px rgba(19,50,43,0.25);
 }
 .scoreImagen{
     display: flex;
@@ -42,5 +60,41 @@ a{
     align-items: row;
     justify-content: center;
    
+}
+
+h1{
+    font-weight: 700;
+    margin-bottom: 3%;
+}
+
+.btn{
+    color: white;
+    font-weight: 600;
+}
+
+.form-control{
+    border: none;
+    border-radius: 300px;
+    box-shadow: 0px 5px 10px 0px rgba(19,50,43,0.25);
+    box-shadow: 15%;
+}
+
+#enviar{
+    border-radius: 300px;
+    box-shadow: 0px 5px 10px 0px rgba(19,50,43,0.25);
+    background-color: #36BFB1;
+}
+
+.score-box{
+    display: flex;
+    align-items: center;
+    height: 10%;
+    justify-content: center;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 30px;
+    box-shadow: 0px 5px 10px 0px rgba(19,50,43,0.25);
 }
 
