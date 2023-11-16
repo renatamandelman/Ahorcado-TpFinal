@@ -35,7 +35,7 @@ body{
     margin-bottom: 1em;
 }
 .inicio button{
-    margin-bottom: 1em;
+  
     border-radius: 300px;
     box-shadow: 0px 5px 10px 0px rgba(19,50,43,0.25);
 }
@@ -73,6 +73,11 @@ h1{
 .btn{
     color: white;
     font-weight: 600;
+}
+.formNombre{
+    display: flex;
+    align-items: center;
+    margin:1em;
 }
 
 .form-control{
