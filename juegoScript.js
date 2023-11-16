@@ -54,19 +54,25 @@ var contadorError = 0;
 
 
 
-document.getElementById("bajo").onclick = function() {
+document.getElementById("bajo").onclick = function () {
+  contadorError = 0;
+  imagen();
   getRandom(0);
   mostrarRayas();
   verLetra(0);
 }
 
 document.getElementById("medio").onclick = function () {
+  contadorError = 0;
+  imagen();
   getRandom(1);
   mostrarRayas();
   verLetra(1);
 }
 
 document.getElementById("alto").onclick = function () {
+  contadorError = 0;
+  imagen();
   getRandom(2);
   mostrarRayas();
   verLetra(2);
@@ -77,6 +83,7 @@ function mostrarRayas() {
 }
 
 function getRandom(nivel) {
+  palabraOculta = "";
   random = Math.floor(Math.random() * palabras[nivel].length);
   longitud = palabras[nivel][random].length;
   palabraOculta = Array(longitud).fill("_");
@@ -95,7 +102,7 @@ function verLetra(nivel) {
     console.log(arrayPalabra);
     if (arrayPalabra.indexOf(letra) !== -1) {
       //existe la letra
-      if (letrasUsadas.indexOf(letra) === -1) {
+      if (letrasUsadas.indexOf(letra) === -1 ) {
         //la letra no fue usada
         letrasUsadas.push(letra);
         score += 2;
@@ -107,16 +114,34 @@ function verLetra(nivel) {
           }
         }
         document.getElementById("rayita").innerHTML = palabraOculta.join(" ");
+        document.getElementById("usada").innerHTML = "Letras usadas:" + letrasUsadas + ",";
       } else {
         //la letra fue usada
         alert("Ya pusiste esa letra, ingresa otra");
       }
     } else {
       //no existe la letra
-      contadorError += 1;
-      imagen();
-      console.log(contadorError);
-      document.getElementById("intentos").innerHTML = contadorError;
+      
+      if(letrasUsadas.indexOf(letra) !== -1){
+        //existe en el array letrasUsadas
+        
+        alert("Ya pusiste esa letra, ingresa otra");
+        
+        letrasUsadas.join(",");
+
+      }else if (letrasUsadas.indexOf(letra) == -1){
+        //no existe en el array letrasUsadas
+        contadorError += 1;
+        console.log(contadorError);
+        letrasUsadas.push(letra);
+        imagen();
+        document.getElementById("intentos").innerHTML = contadorError;
+        document.getElementById("usada").innerHTML = "Letras usadas:" + letrasUsadas + ",";
+      }
+      
+      console.log(letrasUsadas);
+      
+     
       //imprime muñequito
       if (contadorError == 6) {
         alert("Perdiste");
@@ -132,6 +157,7 @@ function verLetra(nivel) {
       document.getElementById("score").innerHTML = score;
       setTimeout(function () {
         alert("Completaste la palabra!!, elegí otro nivel para seguir jugando");
+        
       }, 500);
 
     }
@@ -139,6 +165,8 @@ function verLetra(nivel) {
 
       setTimeout(function () {
         alert("GANASTEEEEEEEEEEEEEEEEE");
+        contadorError = 0;
+        palabraOculta = "";
         window.location.reload();
       }, 500);
 
