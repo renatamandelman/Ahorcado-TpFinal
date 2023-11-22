@@ -122,10 +122,10 @@ function verLetra(nivel) {
     } else {
       //no existe la letra
       
-      if(letrasUsadas.indexOf(letra) !== -1){
+      if(letrasUsadas.indexOf(letra) !== -1 || letra == "" || letra.length > 1){
         //existe en el array letrasUsadas
         
-        alert("Ya pusiste esa letra, ingresa otra");
+        alert("Ingresá un valor válido");
         
         letrasUsadas.join(",");
 
@@ -144,31 +144,27 @@ function verLetra(nivel) {
      
       //imprime muñequito
       if (contadorError == 6) {
-        alert("Perdiste");
-        setTimeout(function () {
-          window.location.reload();
-        }, 500);
+        document.getElementById("modalPerder").style.display = "block";
         //muere muñeco
         //aparecer calavera
       }
     }
-    if (palabraOculta.indexOf("_") === -1) {
+    if (palabraOculta.indexOf("_") === -1 && score < 100) {
       score += 20;
       document.getElementById("score").innerHTML = score;
+
       setTimeout(function () {
         alert("Completaste la palabra!!, elegí otro nivel para seguir jugando");
-        
       }, 500);
+
+    
 
     }
     if (score >= 100 && palabraOculta.indexOf("_") === -1) {
-
-      setTimeout(function () {
-        alert("GANASTEEEEEEEEEEEEEEEEE");
-        contadorError = 0;
-        palabraOculta = "";
-        window.location.reload();
-      }, 500);
+      document.getElementById("modalGanar").style.display = "block";
+      contadorError = 0;
+      palabraOculta = "";
+      
 
     }
   }
