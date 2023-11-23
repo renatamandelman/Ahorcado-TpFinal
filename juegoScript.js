@@ -136,7 +136,7 @@ function verLetra(nivel) {
         letrasUsadas.push(letra);
         imagen();
         document.getElementById("intentos").innerHTML = contadorError;
-        document.getElementById("usada").innerHTML = "Letras usadas:" + letrasUsadas + ",";
+        document.getElementById("usada").innerHTML = "<strong>Letras usadas: </strong>" + letrasUsadas + ",";
       }
       
       console.log(letrasUsadas);

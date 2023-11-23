@@ -1,5 +1,7 @@
 *{
     font-family: Poppins, sans-serif;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 
@@ -94,15 +96,20 @@ h1{
 }
 
 .score-box{
+    font-size: 1em;
     display: flex;
     align-items: center;
-    height: 10%;
+    height: 50%;
+    /* padding-left: 3em;
+    padding-right: 3em; */
     justify-content: center;
     padding-left: 3%;
     padding-right: 3%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    margin-bottom: 20%;
     border-radius: 30px;
     box-shadow: 0px 5px 10px 0px rgba(19,50,43,0.25);
 }
 
+.score-box p{
+    margin-top: 10%;
+}
